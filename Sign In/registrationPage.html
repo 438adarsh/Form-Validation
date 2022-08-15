@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration</title>
+  <style>
+    * {
+      top: 0;
+      left: 0;
+    }
+
+    .main-container {
+      height: 100vh;
+      background-color: beige;
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #content-box {
+      display: flex;
+      box-sizing: content-box;
+      background: linear-gradient(180deg,
+          rgba(34, 193, 195, 1) 10%,
+          rgba(255, 255, 255, 1) 85%);
+      box-shadow: 2px 2px #888888;
+      align-items: center;
+      flex-direction: column;
+      height: 80%;
+      justify-content: center;
+      width: 40%;
+      border-radius: 5px;
+    }
+
+    .text-fields {
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    input {
+      border-radius: 5px;
+      padding: 5px;
+      border: solid 0.5px black;
+    }
+
+    textarea {
+      resize: none;
+      padding: 5px;
+      height: 50px;
+      border-radius: 5px;
+    }
+
+    .btn-style {
+      background-color: black;
+      color: aliceblue;
+      border-radius: 10px;
+      position: sticky;
+      border: solid 2px aliceblue;
+      width: 100px;
+      font-size: 12px;
+      flex-wrap: nowrap;
+      padding: 5px 2px 5px 2px;
+      margin: 0 2px 0 0;
+    }
+
+    .data {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      border-radius: 2px;
+      justify-content: center;
+      align-items: center;
+      border: solid 1px black;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .text-fields {
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body class="main-container">
+  <div id="content-box">
+    <h1>PEWDIEPIE</h1>
+
+    <h2 id="heading">Fan Page</h2>
+
+    <!-- form -->
+    <div class="text-fields">
+      <input type="text" placeholder="Email" id="email" name="email" value="" />
+      <hr />
+      <textarea id="comment" value="" placeholder="Comment" name="comment"></textarea>
+    </div>
+
+    <!-- Button  -->
+    <div class="btn-container">
+      <button onclick="data()" class="btn-style">Sign in</button>
+
+      <button onclick="changeTheme()" class="btn-style">
+        Change background
+      </button>
+    </div>
+
+    <!-- Details  -->
+
+    <!-- JAVASCRIPT -->
+    <script>
+      var changeGradient = 0;
+      var dataShown = true;
+
+      function data() {
+        let email = document.getElementById("email").value;
+        let comment = document.getElementById("comment").value;
+
+        let div = document.createElement("div");
+        div.innerHTML = "Email:" + email + "comment:" + comment;
+        div.classList.add("data");
+
+        if (dataShown) {
+          document.getElementById("comment").after(div);
+          dataShown = false;
+        } else {
+          document.getElementById("comment").prepend(div);
+        }
+      }
+
+      function changeTheme() {
+        let theme = document.getElementById("content-box");
+        changeGradient = changeGradient + 1;
+
+        switch (changeGradient) {
+          case 1: {
+            theme.style.background = "#E7D2CC";
+            break;
+          }
+          case 2: {
+            theme.style.background = "#B9B7BD";
+            break;
+          }
+          case 3: {
+            theme.style.background = "#BFCAD0";
+            break;
+          }
+          case 4: {
+            theme.style.background = "#EEEDE7";
+            break;
+          }
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>
